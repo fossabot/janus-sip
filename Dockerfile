@@ -73,15 +73,15 @@ RUN cd /var/connector && git clone https://github.com/etherlabsio/janus-sip.git 
     --disable-plugin-videoroom  && \
     make && make install && make configs && ldconfig
 
-COPY /var/connector/janus-sip/run_janus.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/run_janus.sh
+COPY /var/connector/janus-sip/run-janus.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/run-janus.sh
 RUN sudo sed -i 's/#stun_server = "stun.voip.eutelia.it"/stun_server = "stun.l.google.com"/g' /usr/local/etc/janus.jcfg
 RUN sed -i 's/#stun_port = 3478/stun_port = 19302/g' /usr/local/etc/janus/janus.jcfg
 RUN sed -i 's/#debug_timestamps = true/debug_timestamps = true/g' /usr/local/etc/janus/janus.jcfg
 
 #CMD janus
 
-CMD ["sh", "-c", "/usr/local/bin/run_janus.sh"]
+CMD ["sh", "-c", "/usr/local/bin/run-janus.sh"]
 
 EXPOSE 80 443
 EXPOSE 10000-60000:10000-60000/udp
