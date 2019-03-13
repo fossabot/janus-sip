@@ -3478,6 +3478,7 @@ static gboolean janus_ice_outgoing_rtcp_handle(gpointer user_data) {
 	/* Audio */
 	if(stream && stream->component && stream->component->out_stats.audio.packets > 0) {
 		/* Create a SR/SDES compound */
+        /*
 		int srlen = 28;
 		int sdeslen = 24;
 		char rtcpbuf[srlen+sdeslen];
@@ -3495,10 +3496,9 @@ static gboolean janus_ice_outgoing_rtcp_handle(gpointer user_data) {
 		uint32_t f = (u << 12) + (u << 8) - ((u * 3650) >> 6);
 		sr->si.ntp_ts_msw = htonl(s);
 		sr->si.ntp_ts_lsw = htonl(f);
-		/* Compute an RTP timestamp coherent with the NTP one */
 		rtcp_context *rtcp_ctx = stream->audio_rtcp_ctx;
 		if(rtcp_ctx == NULL) {
-			sr->si.rtp_ts = htonl(stream->audio_last_ts);	/* FIXME */
+			sr->si.rtp_ts = htonl(stream->audio_last_ts);
 		} else {
 			int64_t ntp = tv.tv_sec*G_USEC_PER_SEC + tv.tv_usec;
 			uint32_t rtp_ts = ((ntp-stream->audio_first_ntp_ts)*(rtcp_ctx->tb))/1000000 + stream->audio_first_rtp_ts;
@@ -3509,8 +3509,8 @@ static gboolean janus_ice_outgoing_rtcp_handle(gpointer user_data) {
 		rtcp_sdes *sdes = (rtcp_sdes *)&rtcpbuf[28];
 		janus_rtcp_sdes_cname((char *)sdes, sdeslen, "janusaudio", 10);
 		sdes->chunk.ssrc = htonl(stream->audio_ssrc);
-		/* Enqueue it, we'll send it later */
 		janus_ice_relay_rtcp_internal(handle, 0, rtcpbuf, srlen+sdeslen, FALSE);
+    */ 
 	}
 	if(stream && stream->audio_recv) {
 		/* Create a RR too */
