@@ -4,7 +4,6 @@ FROM ubuntu:16.04
 
 
 RUN   mkdir -p /var/connector
-ADD . /var/connector/
 
 RUN  apt-get clean
 RUN  apt-get update
@@ -73,11 +72,8 @@ RUN cd /var/connector && git clone https://github.com/etherlabsio/janus-sip.git 
     --disable-plugin-videoroom  && \
     make && make install && make configs && ldconfig
 
-COPY /var/connector/janus-sip/run-janus.sh /usr/local/bin/
+COPY run-janus.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/run-janus.sh
-RUN sudo sed -i 's/#stun_server = "stun.voip.eutelia.it"/stun_server = "stun.l.google.com"/g' /usr/local/etc/janus.jcfg
-RUN sed -i 's/#stun_port = 3478/stun_port = 19302/g' /usr/local/etc/janus/janus.jcfg
-RUN sed -i 's/#debug_timestamps = true/debug_timestamps = true/g' /usr/local/etc/janus/janus.jcfg
 
 #CMD janus
 

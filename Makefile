@@ -1,5 +1,5 @@
 default_tag=latest
-image_name=registry.gitlab.com/etherlabs/janus-sip
+image_name=etherlabsio/janus-sip
 build:
 	@docker build --no-cache -t ${image_name}:${default_tag} .
 	@docker push ${image_name}:${default_tag}
