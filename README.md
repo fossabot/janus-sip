@@ -9,7 +9,6 @@ To discuss Janus with us and other users, there's a Google Group called [meetech
 
 
 ## Dependencies
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2Fjanus-sip.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2Fjanus-sip?ref=badge_shield)
 
 To install it, you'll need to satisfy the following dependencies:
 
