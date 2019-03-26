@@ -9,6 +9,8 @@ To discuss Janus with us and other users, there's a Google Group called [meetech
 
 
 ## Dependencies
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2Fjanus-sip.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2Fjanus-sip?ref=badge_shield)
+
 To install it, you'll need to satisfy the following dependencies:
 
 * [Jansson](http://www.digip.org/jansson/)
@@ -326,3 +328,7 @@ Janus is thoroughly documented. You can find the current documentation, automati
 Any thought, feedback or (hopefully not!) insult is welcome!
 
 Developed by [@meetecho](https://github.com/meetecho)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2Fjanus-sip.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2Fjanus-sip?ref=badge_large)
